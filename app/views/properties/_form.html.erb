@@ -15,6 +15,22 @@
     <%= form.label :name %>
     <%= form.text_field :name, id: :property_name %>
   </div>
+  <div class="field">
+    <%= form.label :county %>
+    <%= form.text_field :county, id: :property_county %>
+  </div>
+  <div class="field">
+    <%= form.label :area %>
+    <%= form.text_field :area, id: :property_area %>
+  </div>
+  <div class="field">
+    <%= form.label :number_of_units %>
+    <%= form.number_field :number_of_units, id: :property_number_of_units %>
+  </div>
+  <div class="field">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, id: :property_notes %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

@@ -18,3 +18,7 @@
  $secondary-color: color("yellow", "base") !default;
  @import "materialize";
  @import "material_icons";
+
+body {
+  color: white;
+}

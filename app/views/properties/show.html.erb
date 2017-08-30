@@ -2,8 +2,13 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @property.name %>
+  <p><strong><%= @property.name %></strong></p>
+    <li><%= @property.county %></li>
+    <li><%= @property.area %></li>
+    <li><%= @property.number_of_units %></li>
+    <li><%= @property.notes %></li>
 </p>
+
 
 <%= link_to 'Edit', edit_property_path(@property) %> |
 <%= link_to 'Back', properties_path %>
