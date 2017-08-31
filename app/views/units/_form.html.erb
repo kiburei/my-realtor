@@ -23,8 +23,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :master_bedroom_ensuite %>
     <%= form.check_box :master_bedroom_ensuite, id: :unit_master_bedroom_ensuite %>
+    <%= form.label :master_bedroom_ensuite %>
   </div>
 
   <div class="field">
@@ -33,8 +33,18 @@
   </div>
 
   <div class="field">
-    <%= form.label :balcony %>
     <%= form.check_box :balcony, id: :unit_balcony %>
+    <%= form.label :balcony %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rent %>
+    <%= form.text_field :rent, id: :unit_rent %>
+  </div>
+
+  <div class="field">
+    <%= form.label :no_of_units %>
+    <%= form.number_field :no_of_units, id: :unit_no_of_units %>
   </div>
 
   <div class="actions">
