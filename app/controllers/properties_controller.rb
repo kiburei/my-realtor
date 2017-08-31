@@ -10,6 +10,7 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
+    @units = @property.units
   end
 
   # GET /properties/new

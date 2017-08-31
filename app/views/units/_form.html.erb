@@ -1,0 +1,43 @@
+<%= form_with(model: unit, url: property_units_path, local: true) do |form| %>
+  <% if unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(unit.errors.count, "error") %> prohibited this unit from being saved:</h2>
+
+      <ul>
+      <% unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= form.hidden_field :property_id, value: params[:property_id] %>
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :unit_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :bedrooms %>
+    <%= form.text_field :bedrooms, id: :unit_bedrooms %>
+  </div>
+
+  <div class="field">
+    <%= form.label :master_bedroom_ensuite %>
+    <%= form.check_box :master_bedroom_ensuite, id: :unit_master_bedroom_ensuite %>
+  </div>
+
+  <div class="field">
+    <%= form.label :floor %>
+    <%= form.text_field :floor, id: :unit_floor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :balcony %>
+    <%= form.check_box :balcony, id: :unit_balcony %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

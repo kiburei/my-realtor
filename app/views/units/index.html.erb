@@ -1,19 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <p><strong><%= @property.name %></strong></p>
-    <li><%= @property.county %></li>
-    <li><%= @property.area %></li>
-    <li><%= @property.number_of_units %></li>
-    <li><%= @property.notes %></li>
-</p>
+<h1>Units</h1>
 
-<%= link_to 'Add Units', new_property_unit_path(@property) %> |
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
-
-<p>Units</p>
 <table>
   <thead>
     <tr>
@@ -34,8 +22,14 @@
         <td><%= unit.master_bedroom_ensuite %></td>
         <td><%= unit.floor %></td>
         <td><%= unit.balcony %></td>
-        
+        <td><%= link_to 'Show', unit %></td>
+        <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
+        <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<%= link_to 'New Unit', new_property_unit_path %>

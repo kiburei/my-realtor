@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @unit.name %>
+</p>
+
+<p>
+  <strong>Bedrooms:</strong>
+  <%= @unit.bedrooms %>
+</p>
+
+<p>
+  <strong>Master bedroom ensuite:</strong>
+  <%= @unit.master_bedroom_ensuite %>
+</p>
+
+<p>
+  <strong>Floor:</strong>
+  <%= @unit.floor %>
+</p>
+
+<p>
+  <strong>Balcony:</strong>
+  <%= @unit.balcony %>
+</p>
+
+<%= link_to 'Edit', edit_unit_path(@unit) %> |
+<%= link_to 'Back', units_path %>
