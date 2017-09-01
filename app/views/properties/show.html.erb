@@ -6,6 +6,7 @@
     <li><%= @property.county %></li>
     <li><%= @property.area %></li>
     <li><%= @property.units.count %></li>
+    <li>Total Expected Monthly rent: <%= @rent %></li>
     <li><%= @property.notes %></li>
 </p>
 
@@ -21,7 +22,7 @@
         <th>Name</th>
         <th>Bedrooms</th>
         <th>Master bedroom ensuite</th>
-        <th>Floor</th>
+        <th>Monthly Rent</th>
         <th>Balcony</th>
         <th colspan="3"></th>
       </tr>
@@ -33,7 +34,7 @@
           <td><%= unit.name %></td>
           <td><%= unit.bedrooms %></td>
           <td><%= unit.master_bedroom_ensuite %></td>
-          <td><%= unit.floor %></td>
+          <td><%= unit.rent %></td>
           <td><%= unit.balcony %></td>
 
         </tr>

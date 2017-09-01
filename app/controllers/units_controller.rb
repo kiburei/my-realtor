@@ -27,6 +27,7 @@ class UnitsController < ApplicationController
   def create
     @unit = Unit.new(unit_params)
     @property = Property.find(params[:property_id])
+
     respond_to do |format|
       if @unit.save
         format.html { redirect_to @property, notice: 'Unit was successfully created.' }
@@ -35,6 +36,15 @@ class UnitsController < ApplicationController
         format.html { render :new }
         format.json { render json: @unit.errors, status: :unprocessable_entity }
       end
+    end
+    add_units
+  end
+
+  def add_units
+    @no_of_units = unit_params[:no_of_units].to_i - 1
+    @no_of_units.times do |i|
+      @unit = Unit.new(unit_params)
+      @unit.save
     end
   end
 
@@ -70,6 +80,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:name, :bedrooms, :master_bedroom_ensuite, :floor, :balcony, :property_id, :rent)
+      params.require(:unit).permit(:name, :bedrooms, :master_bedroom_ensuite, :floor, :balcony, :property_id, :rent, :no_of_units, :occupied)
     end
 end

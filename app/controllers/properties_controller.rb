@@ -11,6 +11,10 @@ class PropertiesController < ApplicationController
   # GET /properties/1.json
   def show
     @units = @property.units
+    @rent = 0
+    @units.each do |unit|
+      @rent += unit.rent
+    end
   end
 
   # GET /properties/new
