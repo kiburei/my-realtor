@@ -10,7 +10,12 @@ class PropertiesController < ApplicationController
   # GET /properties/1
   # GET /properties/1.json
   def show
-    @units = @property.units
+    if current_user.landlord
+      @units = @property.units
+    else
+      @units = @property.units.where(occupied: false)
+    end
+
     @rent = 0
     @units.each do |unit|
       @rent += unit.rent

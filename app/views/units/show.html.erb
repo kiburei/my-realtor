@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if @tenant != nil %>
+  <p>
+    <strong>Tenant</strong>
+    <%= @tenant.email %>
+  </p>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @unit.name %>
@@ -24,6 +31,12 @@
   <strong>Balcony:</strong>
   <%= @unit.balcony %>
 </p>
+<p>
+  <strong>Rent this appartment:</strong>
+  checkout method for leasing
+</p>
 
-<%= link_to 'Edit', edit_unit_path(@unit) %> |
-<%= link_to 'Back', units_path %>
+
+
+<%= link_to 'Edit', edit_property_unit_path(@unit) %> |
+<%= link_to 'Back', property_path(@unit.property_id) %>

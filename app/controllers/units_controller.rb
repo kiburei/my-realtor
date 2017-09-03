@@ -10,6 +10,9 @@ class UnitsController < ApplicationController
   # GET /units/1
   # GET /units/1.json
   def show
+    if current_user.landlord
+      @tenant = User.find(@unit.user_id)
+    end
   end
 
   # GET /units/new
@@ -80,6 +83,6 @@ class UnitsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unit_params
-      params.require(:unit).permit(:name, :bedrooms, :master_bedroom_ensuite, :floor, :balcony, :property_id, :rent, :no_of_units, :occupied)
+      params.require(:unit).permit(:name, :bedrooms, :master_bedroom_ensuite, :floor, :balcony, :property_id, :rent, :no_of_units, :occupied, :user_id)
     end
 end

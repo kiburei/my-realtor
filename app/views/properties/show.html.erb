@@ -1,18 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <p><strong><%= @property.name %></strong></p>
-    <li><%= @property.county %></li>
-    <li><%= @property.area %></li>
-    <li><%= @property.units.count %></li>
-    <li>Total Expected Monthly rent: <%= @rent %></li>
-    <li><%= @property.notes %></li>
-</p>
+<% if current_user.landlord? %>
+  <p>
+    <p><strong><%= @property.name %></strong></p>
+      <li><%= @property.county %></li>
+      <li><%= @property.area %></li>
+      <li><%= @property.units.count %></li>
+      <li>Total Expected Monthly rent: <%= @rent %></li>
+      <li><%= @property.notes %></li>
+  </p>
 
-<%= link_to 'Add Units', new_property_unit_path(@property) %> |
-<%= link_to 'Edit', edit_property_path(@property) %> |
-<%= link_to 'Back', properties_path %>
+  <%= link_to 'Add Units', new_property_unit_path(@property) %> |
+  <%= link_to 'Edit', edit_property_path(@property) %> |
+  <%= link_to 'Back', properties_path %>
+
+<% end %>
 
 <div class="container">
   <p>Units</p>
@@ -22,6 +24,7 @@
         <th>Name</th>
         <th>Bedrooms</th>
         <th>Master bedroom ensuite</th>
+        <th>Vacancy</th>
         <th>Monthly Rent</th>
         <th>Balcony</th>
         <th colspan="3"></th>
@@ -34,8 +37,14 @@
           <td><%= unit.name %></td>
           <td><%= unit.bedrooms %></td>
           <td><%= unit.master_bedroom_ensuite %></td>
+          <% if unit.occupied? %>
+            <td>Occupied</td>
+          <% else %>
+            <td>Vaccant</td>
+          <% end %>
           <td><%= unit.rent %></td>
           <td><%= unit.balcony %></td>
+          <td><%= link_to "show", property_unit_path(unit.property_id, unit) %></td>
 
         </tr>
       <% end %>
